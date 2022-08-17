@@ -1,0 +1,537 @@
+/* General Settings */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Silkscreen&display=swap');
+/* Fonts: Josefin Sans, Silkscreen */
+
+@font-face {
+    font-family: 'Super Mario 256';
+    src: url('SuperMario256.ttf');
+}
+
+body {
+    background-color: var(--bg-color-light-blue);
+    margin: 0;
+    font: 1.3rem 'Josefin Sans', sans-serif;
+    color: #000;
+}
+
+/* Patterns */
+
+a {
+    text-decoration: none;
+}
+
+/* Variables*/
+
+:root{
+    --bg-color-red-pinkish: #d30f3a;
+    --bg-color-yellow: #F6C715;
+    --bg-color-light-blue: #8BD2F0;
+    --bg-color-blue: #2DBDEF;
+    --box-shadow-gray: 0 8px 12px 0 rgba(34, 33, 33, 0.582), 0 6px 16px 0 rgba(39, 39, 39, 0.733);
+    --box-shadow-light-gray: 0 5px 10px 0 rgba(114, 111, 111, 0.48), 0 4px 12px 0 rgba(82, 80, 80, 0.46);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 2.8vmin; }
+  
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #000; }
+   
+::-webkit-scrollbar-thumb {
+    background: var(--bg-color-blue); }
+  
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-color-yellow);
+}
+
+/* Icon golden box */
+
+.icon-box {    /* Desktop only */
+    position: fixed;
+    right: 30px;
+    bottom: 25px;
+    width: 16vmin;
+    height: 16vmin;   
+    cursor: grab;
+}
+
+.icon-box:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+  
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-5px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(7px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-9px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(9px, 0, 0);
+    }
+}
+
+@media (max-width: 60rem) {    /* mobile format */
+    .icon-box { display: none; } 
+}
+
+/* Navigation Bar */
+
+#nav-bar {
+    background-color: var(--bg-color-blue);  
+    max-width: 100%;
+    max-height: 5.5vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+}
+
+.menu {
+    font: 1.6vmax 'Super Mario 256', cursive;  /* Super Mario 256: font downloaded */ 
+    list-style: none;
+    display: flex;
+    gap: 3vmax;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--bg-color-red-pinkish); 
+}
+
+.nav-link:hover{
+    transform: scale(1.2);
+    text-decoration: underline var(--bg-color-yellow);
+    color: #fff; 
+}
+
+.icon-lang {   /* Button to change the language of the website */
+    width: 12vmin;
+    height: 7vmin;
+}
+
+/* Transition banner-entrance */
+
+@keyframes circle-in-hesitate {
+    0% {
+      clip-path: circle(0%);
+    }
+    25% {
+      clip-path: circle(25%);
+    }
+    100% {
+      clip-path: circle(125%); }
+}
+
+[transition-style="in:circle:hesitate"] {
+    animation: circle-in-hesitate 3s cubic-bezier(.25, 1, .30, 1) .5s both;
+}
+
+/* Banner */
+
+#container01 {
+    position: relative;
+    text-align: center;
+}
+
+#banner-image01, #banner-image02 {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 60rem){  /* desktop format */
+    #banner-image02 { display: none; }
+}
+
+.doll-image {
+    width: 18%;
+    height: 50%;
+    position: absolute;
+    left: 2vmin;
+    top: 20.7vmax;
+    animation: bounce 2s ease-in-out 0s infinite normal;
+    transform-origin: bottom;
+}
+
+@keyframes bounce {   /* visible on desktop format only */
+    0%   { transform: scale(1,1) translateY(0); }
+    50%  { transform: scale(1,1.15) translateY(-100px); }
+    100% { transform: scale(1,1) translateY(0); }
+}
+
+@media (max-width: 60rem) {    /* mobile format */
+    .doll-image { display: none; }
+    #banner-image01 { display: none; }    
+}
+
+.name-title {
+    font: 3.7vmax 'Super Mario 256', cursive;  /* Super Mario 256: font downloaded */
+    font-weight: bold;
+    letter-spacing: .2rem;
+    white-space: nowrap;
+    color: var(--bg-color-red-pinkish);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    /* Button glass effect */
+    padding: 2.5vmin 4vmin;
+    background: rgba(202, 243, 173, 0.49);
+    border-radius: 2rem;
+    border: 1px solid rgba(202, 243, 173, 0.432);
+    box-shadow: 0 4px 30px rgba(23, 250, 15, 0.260);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+    /* Animation */
+    animation: back-and-forth .7s ease-in-out infinite alternate;
+}   
+
+@keyframes back-and-forth {
+    from { left: 50%; }
+    to { left: 55%; }
+}
+
+/* Yellow button */
+
+.btn-yellow {
+    font: 2vmax 'Silkscreen', cursive;
+    font-weight: bold;
+    color: #fff;  
+    background-color: var(--bg-color-yellow);
+    box-shadow: var(--box-shadow-light-gray);
+    display: inline-block;    
+    margin: -5vmax 0 2vmax 0;
+    padding: 2.2vmin 3.6vmin;
+    border-radius: 2rem;
+}
+
+.btn-yellow:hover {
+     transform: scale(1.06);
+}
+
+
+/* Section: About me */
+
+#container02 {
+    max-width: 65vmax;
+    margin: 2vmax auto;
+    padding: 2vmax;
+    background-image: url('images/img03.jpg');
+    background-size: cover;
+    border-radius: 2rem;
+    border: solid var(--bg-color-yellow); 
+    color: #000;  
+    text-align: center;
+}
+
+#container03 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-mushroom {
+    width: 14vmin;
+    height: 14vmin;
+    position: relative;
+    margin-right: -2vmax;
+    transform: rotate(-6deg);
+}
+
+.btn-red { 
+    font: 1.4rem 'Silkscreen', cursive;
+    line-height: 2rem;
+    font-weight: bold;
+    color: #fff;  
+    background-color: var(--bg-color-red-pinkish);
+    box-shadow: var(--box-shadow-light-gray);
+    display: inline-block;    
+    margin: 0;
+    padding: 2.8vmin 6vmin;
+    border-radius: 2rem;
+}
+
+.btn-red:hover {
+    transform: scale(1.06);
+}
+
+@media (min-width: 65rem) {  /* mobile format */
+    #container04 {          
+        display: grid;
+        grid-template-columns: 28vmax 28vmax;
+        grid-gap: 2.8vmax;    
+        margin: 2vmax;
+    }
+}
+
+.description01 {
+    line-height: 2rem;
+}
+
+.quote {
+    font: 1rem 'Silkscreen', cursive;
+    font-weight: bold;
+}
+
+.icon-coin01, .icon-coin02, .icon-coin03  { 
+    width: 14vmin;
+    height: 14vmin;
+}
+
+.icon-coin01 {
+    animation: bounce-coin 1.4s ease-in-out 0s infinite normal;
+}
+
+.icon-coin02 {
+    animation: bounce-coin 1.4s ease-in-out 2s infinite normal;
+}
+
+.icon-coin03 {
+    animation: bounce-coin 1.4s ease-in-out 5s infinite normal;
+}
+
+@keyframes bounce-coin {
+    0%   { transform: scale(1,1) translateY(0); }
+    50%  { transform: scale(1,1) translateY(-4vmin); }
+    100% { transform: scale(1,1) translateY(0); }
+}
+
+.personal-photo{
+    width: 75%;
+    height: 88%;
+    border-radius: 3%;
+    margin-top: 2.2vmin;
+    box-shadow: var(--box-shadow-gray);
+    transform: rotate(3deg);
+}
+
+.personal-photo:hover {
+    transform: scale(1.08);
+}
+
+
+/* Section: Skills */
+
+#skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 2vmax;
+}
+
+#container05 {
+    width: 27vmax;
+    margin: 2vmax 0;
+    padding: 1.5vmax;
+    background-image: linear-gradient(115deg, rgba(139, 210, 240, 0.719), rgba(209, 236, 186, 0.5)), url('images/img08.png');
+    background-size: cover;
+    border-radius: 2rem;
+    border: solid var(--bg-color-yellow); 
+    color: #000;  
+    text-align: center;
+}
+
+#container06 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5vmax;
+}
+
+.icon-mario { 
+    width: 16vmin;
+    height: 17vmin;
+    margin: -1vmax 0 0 -3vmax;
+    transform: rotate(6deg);
+}
+
+.icon-shell { 
+    width: 16vmin;
+    height: 16vmin;
+    margin: -1vmax -2vmax 0 0;
+    transform: rotate(-10deg);
+}
+
+.pic-dev {
+    width: 70%;
+    height: 85%;
+    margin-top: 2vmax;
+}
+
+.pic-dev:hover {
+    transform: scale(1.08);
+}
+
+.box02 {
+    display: flex;
+}
+
+.icon-flag {
+    width: 86%;
+    height: 86%;
+    margin-top: 2vmax;
+}
+
+.icon-flag:hover {
+    transform: scale(1.2);
+}
+
+
+/* Section: Projects */
+
+#container07 {
+    max-width: 57vmax;
+    margin: 2vmax auto;
+    padding: 2vmax;
+    background-image: url('images/img03.jpg');
+    border-radius: 2rem;
+    border: solid var(--bg-color-yellow); 
+    color: #000;  
+    text-align: center;
+}
+
+#container08 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-title {
+    width: 17vmin;
+    height: 17vmin;
+    position: relative;
+    margin-right: -2vmax;
+    transform: rotate(-6deg);
+}
+
+.description02 {
+    color: var(--bg-color-yellow);
+    font-weight: bold;
+}
+
+#container09 {
+    margin-bottom: 3vmax;
+}
+
+.img-proj {
+    max-width: 55%;
+    max-height: 55%;
+    margin: 2.2vmax;
+}
+
+.img-proj:hover {
+    transform: scale(1.09);
+}
+
+.description03 {
+    font-size: 2.5vmin;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #FFB400;
+    border-radius: .7rem;
+    margin: -2vmax auto 2vmax;
+    padding: 1vmin;
+    width: 32%;
+}
+
+
+/* Section: Form */
+
+#container10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vmax;
+}
+
+.input-container {
+    display: flex;
+    margin: 2vmax auto;
+    width: 50%;
+}
+  
+.icon {
+    padding: 1.5vmin;
+    background: var(--bg-color-blue);
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+   
+.input-field {
+    width: 100%;
+    padding: 1.5vmin;
+    outline: none;
+    border-radius: .5rem;
+    border-color: var(--bg-color-yellow);
+  }
+  
+.input-field:focus {
+    border: .2rem solid var(--bg-color-blue);
+}
+  
+.btn {
+    font: 1.1rem 'Silkscreen', cursive;
+    color: white;
+    background-color: #0092C5;
+    display: flex;
+    justify-content: center;
+    margin: 2vmax auto;
+    padding: 1vmax 1.5vmax;
+    border: none;
+    width: 50%;
+    opacity: 0.9;
+}
+  
+.btn:hover {
+    opacity: 1;
+}
+
+.container11 {
+    display: flex;
+    justify-content: center;
+    gap: 2vmax;
+    margin-bottom: 7vmax;
+}
+
+.icon-media {
+    width: 8vmin;
+    height: 8vmin; 
+}
+
+/* Footer */
+
+.container-footer {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 6vmax;
+    display: grid;    
+    grid-template-columns: 1fr;
+    justify-items: center;
+    background-color: var(--bg-color-yellow);
+    color: rgb(19, 18, 18);
+    font-size: 2.3vmin;
+    font-weight: bold;
+}
+
+.icon-super-mario {
+    width: 17vmin;
+    height: 15vmin; 
+    margin-top: -4.5vmax;
+}
+
+
+
