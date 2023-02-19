@@ -9,12 +9,12 @@
 
 <strong>[EN]</strong>
 <br>
-This is a page designed to be a personal portfolio with the theme of the character <strong>Super Mario Bross</strong>. Project part of the curriculum of Trybe's bootcamp.
+This is a page designed to be a personal portfolio with the theme of the character <strong>Super Mario Bross</strong>.
 
 <br>
 <strong>[POR]</strong>
 <br>
-Esta é uma página criada como meu portfólio pessoal com o tema do personagem <strong>Super Mario Bross</strong>. Projeto parte do currículo do bootcamp Trybe.
+Esta é uma página criada como meu portfólio pessoal com o tema do personagem <strong>Super Mario Bross</strong>.
 <br>
 <br>
 
